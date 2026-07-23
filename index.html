@@ -1,0 +1,432 @@
+﻿<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Insidious Menu</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="screen">
+    <div class="bg" aria-hidden="true"></div>
+
+    <section class="menu" aria-label="Menu principal">
+      <div class="cover-wrap">
+        <img class="cover" src="assets/portada.png" alt="Portada del videojuego Insidious" />
+        <ul class="options" aria-label="Menu principal">
+          <li class="play-item">
+            <button class="option play-toggle" type="button" aria-expanded="false" aria-controls="play-menu">Jugar</button>
+            <div class="play-menu" id="play-menu" aria-hidden="true">
+              <button class="mode-start active" type="button" data-mode="exploration" aria-pressed="true">
+                <span>Modo exploracion</span>
+                <small>Recorre la casa, busca pistas y sobrevive</small>
+              </button>
+              <button class="mode-start" type="button" data-mode="family" aria-pressed="false">
+                <span>Lado familia</span>
+                <small>Josh, Renai, Dalton, Elise, Specs y Tucker</small>
+              </button>
+              <button class="mode-start" type="button" data-mode="entities" aria-pressed="false">
+                <span>Lado entes</span>
+                <small>Demonio, apariciones y el mas alla</small>
+              </button>
+              <p class="play-selection" id="play-selection">Modo seleccionado: Modo exploracion</p>
+            </div>
+          </li>
+          <li><button class="option" type="button">Configuracion</button></li>
+          <li><button class="option characters-toggle" type="button" aria-expanded="false" aria-controls="characters-panel">Personajes</button></li>
+          <li>
+            <button class="option music-toggle" type="button" aria-expanded="false" aria-controls="music-panel">
+                <span class="music-label">Musica</span>
+                <span class="music-controls">
+                  <span class="music-arrow music-prev" aria-label="Anterior" role="button">◀</span>
+                <span class="music-info" id="music-info">Insidious Theme — DemonzNight</span>
+                  <span class="music-arrow music-next" aria-label="Siguiente" role="button">▶</span>
+                </span>
+              </button>
+          </li>
+          <li><button class="option cinematics-toggle" type="button" aria-expanded="false" aria-controls="cinematics-panel">Cinematicas</button></li>
+          <li><button class="option" type="button">Salir</button></li>
+        </ul>
+        <div class="music-panel" id="music-panel" aria-label="Banda sonora">
+          <p class="music-title">Banda sonora</p>
+          <ul class="tracks">
+            <li><button class="track" type="button" data-src="assets/música/insidious-theme-demonznight.mp3" data-title="Insidious Theme" data-artist="DemonzNight">Insidious Theme — DemonzNight</button></li>
+            <li><button class="track" type="button" data-src="assets/música/tip-toe-thru-the-tulips.m4a" data-title="Tip Toe Thru the Tulips" data-artist="Tiny Tim">Tip Toe Thru the Tulips — Tiny Tim</button></li>
+            <li><button class="track" type="button" data-src="assets/música/me%20and%20the%20man%20on%20the%20moon%20Tiny%20Tim%20%28STEREO%20VERSION%29.mp3" data-title="Me and the Man on the Moon" data-artist="Tiny Tim">Me and the Man on the Moon — Tiny Tim</button></li>
+            <li><button class="track" type="button" data-src="assets/música/earth-angel.m4a" data-title="Earth Angel" data-artist="The Penguins">Earth Angel — The Penguins</button></li>
+            <li><button class="track" type="button" data-src="assets/música/fill-your-heart.m4a" data-title="Fill Your Heart" data-artist="David Cassidy">Fill Your Heart — David Cassidy</button></li>
+          </ul>
+          <audio class="player" preload="auto" autoplay></audio>
+          <p class="autoplay-note">La musica inicia automaticamente. Si no suena, haz clic en el menu.</p>
+        </div>
+        <div class="cinematics-panel" id="cinematics-panel" aria-label="Cinematicas" aria-hidden="true">
+          <div class="cinematics-card">
+            <div class="cinematics-header">
+              <p class="cinematics-title">Cinematicas</p>
+              <button class="cinematics-close" type="button" aria-label="Cerrar">Cerrar</button>
+            </div>
+            <ul class="cinematics-list">
+              <li><button class="cinematic" type="button" data-src="assets/cinematics/intro.mp4">Intro</button></li>
+              <li><button class="cinematic" type="button" data-src="assets/cinematics/Dalton%20ve%20por%20primera%20vez%20al%20demonio%20de%20la%20cara%20roja.mp4">Dalton ve por primera vez al demonio de la cara roja</button></li>
+              <li><button class="cinematic" type="button" data-src="assets/cinematics/El%20demonio%20de%20la%20cara%20roja%20se%20lleva%20a%20Dalton%20al%20más%20allá,%20y%20este%20a%20su%20vez%20parece%20que%20se%20ha%20quedado%20en%20coma.mp4">El demonio de la cara roja se lleva a Dalton al más allá, y este a su vez parece que se ha quedado en coma</button></li>
+              <li><button class="cinematic" type="button" data-src="assets/cinematics/El%20demonio%20de%20la%20cara%20roja%20hace%20su%20segunda%20aparación%20en%20la%20casa.mp4">El demonio de la cara roja hace su segunda aparición en la casa</button></li>
+              <li><button class="cinematic" type="button" data-src="assets/cinematics/Dancing%20boy.mp4">Dancing boy</button></li>
+              <li><button class="cinematic" type="button" data-src="assets/cinematics/El%20demonio%20de%20la%20cara%20roja%20asusta%20a%20los%20Lambert.mp4">El demonio de la cara roja asusta a los Lambert</button></li>
+              <li><button class="cinematic" type="button" data-src="assets/cinematics/Los%20Lambert%20conocen%20a%20Specs%20y%20Tucker.mp4">Los Lambert conocen a Specs y Tucker</button></li>
+              <li><button class="cinematic" type="button" data-src="assets/cinematics/Los%20Lambert%20conocen%20a%20Elise%20Rainier.mp4">Los Lambert conocen a Elise Rainier</button></li>
+              <li><button class="cinematic" type="button" data-src="assets/cinematics/Contactar%20a%20Dalton.mp4">Contactar a Dalton</button></li>
+              <li><button class="cinematic" type="button" data-src="assets/cinematics/Josh%20entra%20al%20más%20allá.mp4">Josh entra al más allá</button></li>
+              <li><button class="cinematic" type="button" data-src="assets/cinematics/Josh%20enfrenta%20al%20Demonio%20y%20salva%20a%20Dalton.mp4">Josh enfrenta al Demonio y salva a Dalton</button></li>
+              <li><button class="cinematic" type="button" data-src="assets/cinematics/La%20anciana%20mata%20a%20Elise.mp4">La anciana mata a Elise</button></li>
+            </ul>
+            <video class="cinematics-player" controls preload="auto"></video>
+          </div>
+        </div>
+        <div class="characters-panel" id="characters-panel" aria-label="Personajes" aria-hidden="true">
+          <div class="characters-card">
+            <div class="characters-header">
+              <p class="characters-title">Personajes</p>
+              <button class="characters-close" type="button" aria-label="Cerrar">Cerrar</button>
+            </div>
+            <div class="characters-choices" role="tablist" aria-label="Categorias">
+              <button class="choice-btn active" type="button" data-target="main-characters" aria-pressed="true">Principales</button>
+              <button class="choice-btn" type="button" data-target="secondary-characters" aria-pressed="false">Secundarios</button>
+            </div>
+            <div class="characters-columns">
+              <div class="characters-group active" id="main-characters">
+                <p class="characters-subtitle">Principales</p>
+                <ul class="characters-list">
+                  <li class="character">
+                    <img src="assets/personajes/Josh_Lambert.jpg" alt="Josh Lambert" />
+                    <span>Josh Lambert</span>
+                  </li>
+                  <li class="character">
+                    <img src="assets/personajes/Renai_Lambert.jpg" alt="Renai Lambert" />
+                    <span>Renai Lambert</span>
+                  </li>
+                  <li class="character">
+                    <img src="assets/personajes/Dalton_Insidious.jpg" alt="Dalton Lambert" />
+                    <span>Dalton Lambert</span>
+                  </li>
+                  <li class="character">
+                    <img src="assets/personajes/Foster_Lambert.jpg" alt="Foster Lambert" />
+                    <span>Foster Lambert</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="characters-group" id="secondary-characters">
+                <p class="characters-subtitle">Secundarios</p>
+                <ul class="characters-list">
+                  <li class="character">
+                    <img src="assets/personajes/El%20demonio.jpg" alt="El Demonio" />
+                    <span>El Demonio</span>
+                  </li>
+                  <li class="character">
+                    <img src="assets/personajes/Dancing_boy.jpg" alt="Dancing Boy" />
+                    <span>Dancing Boy</span>
+                  </li>
+                  <li class="character">
+                    <img src="assets/personajes/The_Long_Haired_Fiend.jpg" alt="Long Haired Fiend" />
+                    <span>Long Haired Fiend</span>
+                  </li>
+                  <li class="character">
+                    <img src="assets/personajes/Specs.jpg" alt="Specs" />
+                    <span>Specs</span>
+                  </li>
+                  <li class="character">
+                    <img src="assets/personajes/Tucker.jpg" alt="Tucker" />
+                    <span>Tucker</span>
+                  </li>
+                  <li class="character">
+                    <img src="assets/personajes/Elise_Insidious.jpg" alt="Elise Rainier" />
+                    <span>Elise Rainier</span>
+                  </li>
+                  <li class="character">
+                    <img src="assets/personajes/La_anciana.jpg" alt="La Anciana" />
+                    <span>La Anciana</span>
+                  </li>
+                  <li class="character">
+                    <img src="assets/personajes/Cali_Lambert.jpg" alt="Kali Lambert" />
+                    <span>Kali Lambert</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script>
+    const player = document.querySelector(".player");
+    const tracks = document.querySelectorAll(".track");
+    const info = document.querySelector("#music-info");
+    const toggle = document.querySelector(".music-toggle");
+    const playlist = Array.from(tracks);
+    let currentIndex = 0;
+    const mainThemeIndex = Math.max(playlist.findIndex((track) => track.dataset.title === "Insidious Theme"), 0);
+    let randomSongsEnabled = false;
+    const cinematicsToggle = document.querySelector(".cinematics-toggle");
+    const cinematicsPanel = document.querySelector("#cinematics-panel");
+    const cinematicsClose = document.querySelector(".cinematics-close");
+    const cinematicsPlayer = document.querySelector(".cinematics-player");
+    const cinematics = document.querySelectorAll(".cinematic");
+    const prevBtn = document.querySelector(".music-prev");
+    const nextBtn = document.querySelector(".music-next");
+    const charactersToggle = document.querySelector(".characters-toggle");
+    const charactersPanel = document.querySelector("#characters-panel");
+    const charactersClose = document.querySelector(".characters-close");
+    const characterChoices = document.querySelectorAll(".choice-btn");
+    const characterGroups = document.querySelectorAll(".characters-group");
+    const playToggle = document.querySelector(".play-toggle");
+    const playMenu = document.querySelector("#play-menu");
+    const modeStarts = document.querySelectorAll(".mode-start");
+    const playSelection = document.querySelector("#play-selection");
+
+    function setTrack(index) {
+      const track = playlist[index];
+      const src = track.getAttribute("data-src");
+      const title = track.getAttribute("data-title");
+      const artist = track.getAttribute("data-artist");
+      if (!src) return;
+      player.src = src;
+      info.textContent = `${title} — ${artist}`;
+      currentIndex = index;
+      player.loop = !randomSongsEnabled && currentIndex === mainThemeIndex;
+    }
+
+    function playTrack(index, useRandomSongs = index !== mainThemeIndex) {
+      randomSongsEnabled = useRandomSongs;
+      setTrack(index);
+      player.play().catch(() => {});
+    }
+
+    function getSecondaryIndexes() {
+      return playlist
+        .map((_, index) => index)
+        .filter((index) => index !== mainThemeIndex);
+    }
+
+    // El tema principal es la base del menu; las demas canciones entran solo al pedir cambio.
+    randomSongsEnabled = false;
+    setTrack(mainThemeIndex);
+    player.play().catch(() => {});
+
+    tracks.forEach((track) => {
+      track.addEventListener("click", () => {
+        const index = playlist.indexOf(track);
+        if (index >= 0) {
+          playTrack(index, index !== mainThemeIndex);
+        }
+      });
+    });
+
+    // En modo banda sonora, al terminar salta aleatoriamente entre canciones secundarias.
+    player.addEventListener("ended", () => {
+      if (!randomSongsEnabled) {
+        playTrack(mainThemeIndex, false);
+        return;
+      }
+
+      const secondaryTracks = getSecondaryIndexes();
+      if (!secondaryTracks.length) {
+        playTrack(mainThemeIndex, false);
+        return;
+      }
+
+      let next = secondaryTracks[Math.floor(Math.random() * secondaryTracks.length)];
+      if (secondaryTracks.length > 1) {
+        while (next === currentIndex) {
+          next = secondaryTracks[Math.floor(Math.random() * secondaryTracks.length)];
+        }
+      }
+      playTrack(next, true);
+    });
+
+    toggle.addEventListener("click", () => {
+      const isOpen = toggle.classList.toggle("active");
+      toggle.setAttribute("aria-expanded", String(isOpen));
+      if (player.paused) {
+        player.play().catch(() => {});
+      } else {
+        player.pause();
+      }
+    });
+
+    function playNext() {
+      const secondaryTracks = getSecondaryIndexes();
+      if (!secondaryTracks.length) return;
+      const secondaryPosition = secondaryTracks.indexOf(currentIndex);
+      const next = secondaryPosition === -1
+        ? secondaryTracks[0]
+        : secondaryTracks[(secondaryPosition + 1) % secondaryTracks.length];
+      playTrack(next, true);
+    }
+
+    function playPrev() {
+      const secondaryTracks = getSecondaryIndexes();
+      if (!secondaryTracks.length) return;
+      const secondaryPosition = secondaryTracks.indexOf(currentIndex);
+      const prev = secondaryPosition === -1
+        ? secondaryTracks[secondaryTracks.length - 1]
+        : secondaryTracks[(secondaryPosition - 1 + secondaryTracks.length) % secondaryTracks.length];
+      playTrack(prev, true);
+    }
+
+    prevBtn.addEventListener("click", (event) => {
+      event.stopPropagation();
+      playPrev();
+      toggle.classList.add("active");
+      toggle.setAttribute("aria-expanded", "true");
+    });
+
+    nextBtn.addEventListener("click", (event) => {
+      event.stopPropagation();
+      playNext();
+      toggle.classList.add("active");
+      toggle.setAttribute("aria-expanded", "true");
+    });
+
+    function openCinematics() {
+      closePlayMenu();
+      cinematicsPanel.classList.add("open");
+      cinematicsPanel.setAttribute("aria-hidden", "false");
+      cinematicsToggle.setAttribute("aria-expanded", "true");
+    }
+
+    function closeCinematics() {
+      cinematicsPanel.classList.remove("open");
+      cinematicsPanel.setAttribute("aria-hidden", "true");
+      cinematicsToggle.setAttribute("aria-expanded", "false");
+      cinematicsPlayer.pause();
+    }
+
+    cinematicsToggle.addEventListener("click", () => {
+      if (cinematicsPanel.classList.contains("open")) {
+        closeCinematics();
+        return;
+      }
+      // Pausa la musica mientras se ven las cinematicas.
+      if (!player.paused) {
+        player.pause();
+      }
+      openCinematics();
+    });
+
+    cinematicsClose.addEventListener("click", closeCinematics);
+
+    cinematicsPanel.addEventListener("click", (event) => {
+      if (event.target === cinematicsPanel) {
+        closeCinematics();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key !== "Escape") return;
+      if (cinematicsPanel.classList.contains("open")) {
+        closeCinematics();
+      }
+      if (charactersPanel.classList.contains("open")) {
+        closeCharacters();
+      }
+      if (playMenu.classList.contains("open")) {
+        closePlayMenu();
+      }
+    });
+
+    cinematics.forEach((cinematic) => {
+      cinematic.addEventListener("click", () => {
+        const src = cinematic.getAttribute("data-src");
+        if (!src) return;
+        cinematicsPlayer.src = src;
+        cinematicsPlayer.muted = false;
+        cinematicsPlayer.volume = 1;
+        cinematicsPlayer.play().catch(() => {});
+      });
+    });
+
+    function openCharacters() {
+      closePlayMenu();
+      charactersPanel.classList.add("open");
+      charactersPanel.setAttribute("aria-hidden", "false");
+      charactersToggle.setAttribute("aria-expanded", "true");
+    }
+
+    function closeCharacters() {
+      charactersPanel.classList.remove("open");
+      charactersPanel.setAttribute("aria-hidden", "true");
+      charactersToggle.setAttribute("aria-expanded", "false");
+    }
+
+    charactersToggle.addEventListener("click", () => {
+      if (charactersPanel.classList.contains("open")) {
+        closeCharacters();
+        return;
+      }
+      openCharacters();
+    });
+
+    charactersClose.addEventListener("click", closeCharacters);
+
+    charactersPanel.addEventListener("click", (event) => {
+      if (event.target === charactersPanel) {
+        closeCharacters();
+      }
+    });
+
+    function closePlayMenu() {
+      playMenu.classList.remove("open");
+      playMenu.setAttribute("aria-hidden", "true");
+      playToggle.setAttribute("aria-expanded", "false");
+    }
+
+    function openPlayMenu() {
+      playMenu.classList.add("open");
+      playMenu.setAttribute("aria-hidden", "false");
+      playToggle.setAttribute("aria-expanded", "true");
+    }
+
+    playToggle.addEventListener("click", () => {
+      if (playMenu.classList.contains("open")) {
+        closePlayMenu();
+        return;
+      }
+      openPlayMenu();
+    });
+
+    modeStarts.forEach((button) => {
+      button.addEventListener("click", () => {
+        modeStarts.forEach((item) => {
+          item.classList.remove("active");
+          item.setAttribute("aria-pressed", "false");
+        });
+        button.classList.add("active");
+        button.setAttribute("aria-pressed", "true");
+        const title = button.querySelector("span")?.textContent || "Modo historia";
+        playSelection.textContent = `Modo seleccionado: ${title}`;
+      });
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!playMenu.classList.contains("open")) return;
+      if (event.target.closest(".play-item")) return;
+      closePlayMenu();
+    });
+
+    characterChoices.forEach((choice) => {
+      choice.addEventListener("click", () => {
+        characterChoices.forEach((btn) => {
+          btn.classList.remove("active");
+          btn.setAttribute("aria-pressed", "false");
+        });
+        choice.classList.add("active");
+        choice.setAttribute("aria-pressed", "true");
+        const target = choice.getAttribute("data-target");
+        characterGroups.forEach((group) => {
+          group.classList.toggle("active", group.id === target);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
